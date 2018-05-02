@@ -1,0 +1,33 @@
+{
+  "name": "Trocar imagem",
+  "version": "1.0",
+  "description": "Troque tudo por alguma imagem",
+  "permissions": ["declarativeContent","storage", "activeTab", "tabs", "<all_urls>",
+    "file://*/*",
+    "http://*/*",
+    "https://*/*"],
+    "web_accessible_resources": [
+      "deFora/jquery-3.3.1.min.js"
+  ],
+  "background": {
+    "scripts": ["popup.html"],
+    "persistent": true
+  },
+  "content_scripts": [
+    {
+        "matches": ["http://*/*", "https://*/*"],
+        "all_frames": true,
+        "run_at": "document_idle",
+        "js": ["deFora/jquery-3.3.1.min.js","popup.js"]
+    }
+],
+
+  "icons": {
+    "16": "imagens/if_chemistry-tube_16.png",
+      "32": "imagens/if_chemistry-tube_32.png",
+      "48": "imagens/if_chemistry-tube_48.png",
+      "128": "imagens/if_chemistry-tube_128.png"
+  },
+  "options_page": "",
+  "manifest_version": 2
+}
